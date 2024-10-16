@@ -76,7 +76,15 @@ class Insurance:
                     name=f'{insurer} - {col}',
                     marker=dict(symbol='square')
                 ), row=2, col=1)
-    
+
+        home_figure.add_trace(go.Scatter(
+            x=home_premiums['DATE'],
+            y=home_premiums['PREMIUM'],
+            mode='lines+markers',
+            marker=dict(symbol='square', color='black'),
+            name='Total Premium'
+        ))
+
         home_figure.update_layout(
             title='Home Insurance Premiums and Coverages',
             xaxis_title='Date',
