@@ -5,8 +5,8 @@ from plotly.subplots import make_subplots
 
 class Insurance:
     def __init__(self):
-        self._home = 'data/home_premiums.csv'
-        self._auto = 'data/auto_premiums.csv'
+        self._home = 'data/home_coverages.csv'
+        self._auto = 'data/auto_coverages.csv'
         self._auto_claims = 'data/auto_claims.csv'
         
         self.home_insurance = self._convert_to_df(self._home)
