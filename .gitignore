@@ -1,5 +1,12 @@
-venv
-.venv
-.ipynb_checkpoints
-.devcontainer
-__pycache__
+**/.devcontainer/
+
+**/.ipynb_checkpoints/
+
+**/__pycache__/
+
+**/venv/
+**/.venv/
+
+*.pyc
+*.pyo
+*.pyd
