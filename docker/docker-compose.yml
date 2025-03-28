@@ -3,7 +3,7 @@ services:
     image: pyinsurance:latest
     build:
       context: .
-      dockerfile: docker/Dockerfile
+      dockerfile: Dockerfile
     container_name: pyinsurance
     ports:
       - '8003:8003/tcp'
