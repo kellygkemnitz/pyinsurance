@@ -5,25 +5,25 @@ from plotly.subplots import make_subplots
 
 class Insurance:
     def __init__(self):
-        self._home = 'data/home_coverages.csv'
-        self._auto = 'data/auto_coverages.csv'
-        self._auto_claims = 'data/auto_claims.csv'
+        self.auto_data = 'data/auto.json'
+        self.home_data = 'data/home.json'
+                
+        self.auto_df = self._convert_to_df(self.auto_data)
+        self.home_df = self._convert_to_df(self.home_data)
+
+        self.home_premiums, self.home_coverages = self._home_premiums_and_coverages(self.home_df)
         
-        self.home_insurance = self._convert_to_df(self._home)
-        self.auto_insurance = self._convert_to_df(self._auto)
-        self.auto_claims = self._convert_to_df(self._auto_claims)
+        self.auto_premiums = self._auto_premiums(self.auto_df)
+        self.auto_premiums_by_vehicle = self._auto_premiums_by_vehicle(self.auto_df)
+        self.auto_claims_by_vehicle = self._filtered_auto_claims(self.auto_df)
 
-        self._home_premiums, self._home_coverages = self._home_premiums_and_coverages(self.home_insurance)
-        self._auto_total_premiums = self._auto_total_premiums(self.auto_insurance)
-        self._auto_premium_by_vehicle = self._auto_premium_by_vehicle(self.auto_insurance)
-        self._filtered_auto_claims = self._filtered_auto_claims(self.auto_claims)
-
-        self.create_home_insurance_plots = self.create_home_insurance_plots(self._home_premiums, self._home_coverages)
-        self.create_auto_insurance_plots = self.create_auto_insurance_plots(self._auto_total_premiums, self._auto_premium_by_vehicle, self._filtered_auto_claims)
+        self.create_auto_plots()
+        self.create_home_plots()
+        
 
     def _convert_to_df(self, file_path):
         try:
-            df = pd.read_csv(file_path)
+            df = pd.read_json(file_path)
             return df
         except FileNotFoundError as e:
             print(f"Error: {e}")
@@ -33,93 +33,53 @@ class Insurance:
             return None
     
     def _home_premiums_and_coverages(self, home_df):
-        premiums_df = home_df[['DATE', 'INSURER', 'PREMIUM']]
-        coverages_df = home_df.drop(columns=['PREMIUM'])
+        premiums_df = home_df[['Date', 'Insurer', 'Total']].copy()
+        coverages_df = home_df.drop(columns=['Total']).copy()
 
         return premiums_df, coverages_df
     
-    def _auto_total_premiums(self, auto_df):
-        return auto_df[['DATE', 'TOTAL']]
+    def _auto_premiums(self, auto_df):
+        premiums_df = auto_df[auto_df['Category'] == 'Premium'].copy()
+        return premiums_df[['Date', 'Total']]
     
-    def _auto_premium_by_vehicle(self, auto_df):
-        filtered_auto_df = auto_df.drop(columns=['TOTAL', 'INSURER'])
+    def _auto_premiums_by_vehicle(self, auto_df):
+        premiums_df = auto_df[auto_df['Category'] == 'Premium'].copy()
+        filtered_auto_df = premiums_df.drop(columns=['Total', 'Insurer'])
 
-        melted_auto_df = filtered_auto_df.melt(id_vars=['DATE'], var_name='VEHICLE', value_name='PREMIUM')
-        melted_auto_df = melted_auto_df.dropna(subset=['PREMIUM'])
+        melted_auto_df = filtered_auto_df.melt(id_vars=['Date'], var_name='Vehicle', value_name='Total')
+        melted_auto_df = melted_auto_df.dropna(subset=['Total'])
 
         return melted_auto_df
 
-    def _filtered_auto_claims(self, auto_claims_df):
-        return auto_claims_df[['DATE','VEHICLE']]
+    def _filtered_auto_claims(self, auto_df):
+        claims_df = auto_df[auto_df['Category'] == 'Claim'].copy()
+        return claims_df[['Date','Vehicle']]
     
-    def create_home_insurance_plots(self, home_premiums, home_coverages):
-        home_figure = make_subplots(rows=2, cols=1, shared_xaxes=True, subplot_titles=('Home Insurance Premiums', 'Home Insurance Coverages'))
-
-        for insurer in home_premiums['INSURER'].unique():
-            insurer_df = home_premiums[home_premiums['INSURER'] == insurer]
-            home_figure.add_trace(go.Scatter(
-                x=insurer_df['DATE'],
-                y=insurer_df['PREMIUM'],
-                mode='lines+markers',
-                name=insurer,
-                marker=dict(symbol='circle')
-            ), row=1, col=1)
-
-        for insurer in home_coverages['INSURER'].unique():
-            insurer_df = home_coverages[home_coverages['INSURER'] == insurer]
-            for col in home_coverages.columns[2:]:
-                home_figure.add_trace(go.Scatter(
-                    x=insurer_df['DATE'],
-                    y=insurer_df[col],
-                    mode='lines+markers',
-                    name=f'{insurer} - {col}',
-                    marker=dict(symbol='square')
-                ), row=2, col=1)
-
-        home_figure.add_trace(go.Scatter(
-            x=home_premiums['DATE'],
-            y=home_premiums['PREMIUM'],
-            mode='lines+markers',
-            marker=dict(symbol='square', color='black'),
-            name='Total Premium'
-        ))
-
-        home_figure.update_layout(
-            title='Home Insurance Premiums and Coverages',
-            xaxis_title='Date',
-            yaxis_title='Amount',
-            legend_title='Insurer - Premium/Coverage',
-            hovermode='x unified',
-            height=800
-        )
-
-        return home_figure
-    
-    def create_auto_insurance_plots(self, total_premiums, premiums_by_vehicle, claims_by_vehicle):
+    def create_auto_plots(self):
         vehicle_colors = {
-            '2020 TOYOTA TACOMA': 'blue',
-            '2012 CHEVY CRUZE': 'green',
-            '2016 TOYOTA COROLLA': 'purple',
-            '2017 HYUNDAI SONATA': 'orange',
-            '2003 HONDA ACCORD': 'red'
+            '2020 Toyota Tacoma': 'gray',
+            '2012 Chevy Cruze': 'black',
+            '2016 Toyota Corolla': 'darkgray',
+            '2017 Hyundai Sonata': 'lightblue',
+            '2003 Honda Accord': 'lightgray'
         }
 
         auto_figure = go.Figure()
 
-        for vehicle in premiums_by_vehicle['VEHICLE'].unique():
-            vehicle_df = premiums_by_vehicle[premiums_by_vehicle['VEHICLE'] == vehicle]
+        for vehicle in self.auto_premiums_by_vehicle['Vehicle'].unique():
+            vehicle_df = self.auto_premiums_by_vehicle[self.auto_premiums_by_vehicle['Vehicle'] == vehicle]
             auto_figure.add_trace(go.Scatter(
-                x=vehicle_df['DATE'],
-                y=vehicle_df['PREMIUM'],
+                x=vehicle_df['Date'],
+                y=vehicle_df['Total'],
                 mode='lines+markers',
                 marker=dict(color=vehicle_colors.get(vehicle)),
                 name=f'{vehicle} Premium'
             ))
 
-        for vehicle in claims_by_vehicle['VEHICLE'].unique():
-            vehicle_df = claims_by_vehicle[claims_by_vehicle['VEHICLE'] == vehicle]
+        for vehicle in self.auto_claims_by_vehicle['Vehicle'].unique():
+            vehicle_df = self.auto_claims_by_vehicle[self.auto_claims_by_vehicle['Vehicle'] == vehicle]
             auto_figure.add_trace(go.Scatter(
-                x=vehicle_df['DATE'],
+                x=vehicle_df['Date'],
                 y=[0]*len(vehicle_df),
                 mode='markers',
                 name=f'{vehicle} Claim',
@@ -127,8 +87,8 @@ class Insurance:
             ))
 
         auto_figure.add_trace(go.Scatter(
-            x=total_premiums['DATE'],
-            y=total_premiums['TOTAL'],
+            x=self.auto_premiums['Date'],
+            y=self.auto_premiums['Total'],
             mode='lines+markers',
             marker=dict(color='black'),
             name='Total Premium'
@@ -145,3 +105,41 @@ class Insurance:
 
         return auto_figure
     
+    def create_home_plots(self):
+        home_figure = make_subplots(
+            rows=2,
+            cols=1,
+            shared_xaxes=True,
+            subplot_titles=(
+                'Home Insurance Premiums',
+                'Home Insurance Coverages'
+            )
+        )
+
+        home_figure.add_trace(go.Scatter(
+            x=self.home_premiums['Date'],
+            y=self.home_premiums['Total'],
+            mode='lines+markers',
+            name='Premium',
+            marker=dict(symbol='circle')
+        ), row=1, col=1)
+
+        for col in self.home_coverages.columns[2:]:
+            home_figure.add_trace(go.Scatter(
+                x=self.home_coverages['Date'],
+                y=self.home_coverages[col],
+                mode='lines+markers',
+                name=f'{col}',
+                marker=dict(symbol='square')
+            ), row=2, col=1)
+
+        home_figure.update_layout(
+            title='Home Insurance Premiums and Coverages',
+            xaxis_title='Date',
+            yaxis_title='Amount',
+            legend_title='Premium/Coverage',
+            hovermode='x unified',
+            height=800
+        )
+
+        return home_figure
