@@ -6,5 +6,5 @@ services:
       dockerfile: Dockerfile
     container_name: pyinsurance
     ports:
-      - '8003:8003/tcp
+      - '8003:8003/tcp'
     restart: unless-stopped
