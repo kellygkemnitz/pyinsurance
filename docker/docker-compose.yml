@@ -3,8 +3,8 @@ services:
     image: pyinsurance:latest
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker/Dockerfile
     container_name: pyinsurance
     ports:
-      - '8003:8003/tcp
+      - '8003:8003/tcp'
     restart: unless-stopped
