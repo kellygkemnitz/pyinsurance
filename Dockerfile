@@ -6,11 +6,10 @@ COPY ../requirements.txt /pyinsurance/
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY ../app /pyinsurance/app/
-COPY ../modules /pyinsurance/modules/
+COPY ./data /pyinsurance/data/
+COPY ./modules /pyinsurance/modules/
+COPY ./app /pyinsurance/app/
 
 EXPOSE 8003
 
-ENTRYPOINT ["python3" ]
-
-CMD ["-m", "app.main"]
+CMD ["python3", "/pyinsurance/app/app.py"]
