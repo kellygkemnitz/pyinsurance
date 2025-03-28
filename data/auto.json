@@ -1,0 +1,215 @@
+[
+    {
+        "Date": "9/30/2020",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 427.44,
+        "2020 Toyota Tacoma": 507.37,
+        "Total": 934.81
+    },
+    {
+        "Date": "4/2/2021",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 471.24,
+        "2020 Toyota Tacoma": 569.14,
+        "Total": 1040.38
+    },
+    {
+        "Date": "5/1/2021",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 515.87,
+        "2020 Toyota Tacoma": 609.99,
+        "2012 Chevy Cruze": 345.9,
+        "Total": 1471.76
+    },
+    {
+        "Date": "10/5/2021",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 515.87,
+        "2020 Toyota Tacoma": 611.96,
+        "2012 Chevy Cruze": 345.9,
+        "Total": 1473.73
+    },
+    {
+        "Date": "1/31/2022",
+        "Category": "Claim",
+        "Insurer": "Allstate",
+        "Claim Number": "0657871935",
+        "Vehicle": "2012 Chevy Cruze",
+        "Type": "Tow",
+        "Amount": 51.35
+    },
+    {
+        "Date": "3/4/2022",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 688.08,
+        "2020 Toyota Tacoma": 741.65,
+        "2012 Chevy Cruze": 479.8,
+        "Total": 1909.53
+    },
+    {
+        "Date": "3/10/2022",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 677.24,
+        "2020 Toyota Tacoma": 732.67,
+        "2012 Chevy Cruze": 472.0,
+        "Total": 1881.91
+    },
+    {
+        "Date": "4/2/2022",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 820.45,
+        "2020 Toyota Tacoma": 918.97,
+        "2012 Chevy Cruze": 580.56,
+        "Total": 2319.98
+    },
+    {
+        "Date": "10/6/2022",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 1020.97,
+        "2020 Toyota Tacoma": 1112.75,
+        "2012 Chevy Cruze": 758.72,
+        "Total": 2892.44
+    },
+    {
+        "Date": "10/13/2022",
+        "Category": "Claim",
+        "Insurer": "Allstate",
+        "Claim Number": "0688598976",
+        "Vehicle": "2012 Chevy Cruze",
+        "Type": "Tow",
+        "Amount": 45.90
+    },
+    {
+        "Date": "10/13/2022",
+        "Category": "Claim",
+        "Insurer": "Allstate",
+        "Claim Number": "0688968882",
+        "Vehicle": "2012 Chevy Cruze",
+        "Type": "Crash/Totaled",
+        "Amount": 10010.40
+    },
+    {
+        "Date": "10/29/2022",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 1105.87,
+        "2020 Toyota Tacoma": 1184.27,
+        "Total": 2290.14
+    },
+    {
+        "Date": "1/18/2023",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 828.38,
+        "2020 Toyota Tacoma": 929.1,
+        "2016 Toyota Corolla": 692.67,
+        "Total": 2450.15
+    },
+    {
+        "Date": "4/4/2023",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 982.56,
+        "2020 Toyota Tacoma": 1127.59,
+        "2016 Toyota Corolla": 821.15,
+        "Total": 2931.3
+    },
+    {
+        "Date": "5/6/2023",
+        "Category": "Claim",
+        "Insurer": "Allstate",
+        "Claim Number": "0712923150",
+        "Vehicle": "2016 Toyota Corolla",
+        "Type": "Crash/Totaled",
+        "Amount": 27043.08
+    },
+    {
+        "Date": "8/25/2023",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 845.89,
+        "2020 Toyota Tacoma": 989.83,
+        "2003 Honda Accord": 728.36,
+        "Total": 2564.08
+    },
+    {
+        "Date": "9/7/2023",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 801.27,
+        "2020 Toyota Tacoma": 940.32,
+        "2003 Honda Accord": 690.92,
+        "Total": 2432.51
+    },
+    {
+        "Date": "10/4/2023",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 1281.36,
+        "2020 Toyota Tacoma": 1416.3,
+        "2003 Honda Accord": 1134.89,
+        "Total": 3832.55
+    },
+    {
+        "Date": "4/3/2024",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 1375.65,
+        "2020 Toyota Tacoma": 1417.5,
+        "2003 Honda Accord": 1132.26,
+        "Total": 3925.41
+    },
+    {
+        "Date": "7/7/2024",
+        "Category": "Claim",
+        "Insurer": "Allstate",
+        "Claim Number": "0761147792",
+        "Vehicle": "2017 Hyundai Sonata",
+        "Type": "Animal",
+        "Amount": 6840.80
+    },
+    {
+        "Date": "10/3/2024",
+        "Category": "Premium",
+        "Insurer": "Allstate",
+        "2017 Hyundai Sonata": 1723.15,
+        "2020 Toyota Tacoma": 1459.58,
+        "2003 Honda Accord": 1291.99,
+        "Total": 4474.72
+    },
+    {
+        "Date": "11/4/2024",
+        "Category": "Premium",
+        "Insurer": "Progressive",
+        "2017 Hyundai Sonata": 1544.0,
+        "2020 Toyota Tacoma": 1344.0,
+        "2003 Honda Accord": 451.0,
+        "Total": 3339.0
+    },
+    {
+        "Date": "12/20/2024",
+        "Category": "Claim",
+        "Insurer": "Progressive",
+        "Claim Number": "24-583347349",
+        "Vehicle": "2003 Honda Accord",
+        "Type": "Crash/At Fault",
+        "Amount": 13995.43
+    },
+    {
+        "Date": "5/4/2025",
+        "Category": "Premium",
+        "Insurer": "Progressive",
+        "2017 Hyundai Sonata": 2174.33,
+        "2020 Toyota Tacoma": 1818.33,
+        "2003 Honda Accord": 521.34,
+        "Total": 4513.99
+    }
+]

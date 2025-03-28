@@ -1,0 +1,67 @@
+[
+    {
+        "Date": "9/29/2020",
+        "Insurer": "Allstate",
+        "Total": 1048.32,
+        "Dwelling Coverage": 337165.00,
+        "Other Structures Protection": 50575.00,
+        "Personal Property Protection": 252874.00,
+        "Additional Living Expense": 84292.00,
+        "Family Liability Protection": 300000.00,
+        "Guest Medical Protection": 1000.00,
+        "Building Codes": 33717.00,
+        "Water Back-Up": 10000.00
+    },
+    {
+        "Date": "9/29/2021",
+        "Insurer": "Allstate",
+        "Total": 1334.49,
+        "Dwelling Coverage": 363770.00,
+        "Other Structures Protection": 54566.00,
+        "Personal Property Protection": 272828.00,
+        "Additional Living Expense": 90943.00,
+        "Family Liability Protection": 300000.00,
+        "Guest Medical Protection": 1000.00,
+        "Building Codes": 36377.00,
+        "Water Back-Up": 10000.00
+    },
+    {
+        "Date": "9/29/2022",
+        "Insurer": "Allstate",
+        "Total": 1507.72,
+        "Dwelling Coverage": 410945.00,
+        "Other Structures Protection": 61642.00,
+        "Personal Property Protection": 308209.00,
+        "Additional Living Expense": 102737.00,
+        "Family Liability Protection": 300000.00,
+        "Guest Medical Protection": 1000.00,
+        "Building Codes": 41095.00,
+        "Water Back-Up": 10000.00
+    },
+    {
+        "Date": "9/29/2023",
+        "Insurer": "Allstate",
+        "Total": 1850.19,
+        "Dwelling Coverage": 454323.00,
+        "Other Structures Protection": 68149.00,
+        "Personal Property Protection": 340743.00,
+        "Additional Living Expense": 113581.00,
+        "Family Liability Protection": 300000.00,
+        "Guest Medical Protection": 1000.00,
+        "Building Codes": 45433.00,
+        "Water Back-Up": 10000.00
+    },
+    {
+        "Date": "9/19/2024",
+        "Insurer": "Allstate",
+        "Total": 2166.50,
+        "Dwelling Coverage": 479218.00,
+        "Other Structures Protection": 71883.00,
+        "Personal Property Protection": 359414.00,
+        "Additional Living Expense": 119805.00,
+        "Family Liability Protection": 300000.00,
+        "Guest Medical Protection": 1000.00,
+        "Building Codes": 47922.00,
+        "Water Back-Up": 10000.00
+    }
+]
