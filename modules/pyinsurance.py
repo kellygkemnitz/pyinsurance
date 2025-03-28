@@ -40,10 +40,13 @@ class Insurance:
     
     def _auto_premiums(self, auto_df):
         premiums_df = auto_df[auto_df['Category'] == 'Premium'].copy()
+        premiums_df = premiums_df.drop(columns=['Category'])
+        
         return premiums_df[['Date', 'Total']]
     
     def _auto_premiums_by_vehicle(self, auto_df):
         premiums_df = auto_df[auto_df['Category'] == 'Premium'].copy()
+        premiums_df = premiums_df.drop(columns=['Category'])
         filtered_auto_df = premiums_df.drop(columns=['Total', 'Insurer'])
 
         melted_auto_df = filtered_auto_df.melt(id_vars=['Date'], var_name='Vehicle', value_name='Total')
@@ -53,6 +56,8 @@ class Insurance:
 
     def _filtered_auto_claims(self, auto_df):
         claims_df = auto_df[auto_df['Category'] == 'Claim'].copy()
+        claims_df = claims_df.drop(columns=['Category'])
+        
         return claims_df[['Date','Vehicle']]
     
     def create_auto_plots(self):
