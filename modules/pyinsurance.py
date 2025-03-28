@@ -62,11 +62,11 @@ class Insurance:
     
     def create_auto_plots(self):
         vehicle_colors = {
-            '2020 Toyota Tacoma': 'gray',
-            '2012 Chevy Cruze': 'black',
-            '2016 Toyota Corolla': 'darkgray',
-            '2017 Hyundai Sonata': 'lightblue',
-            '2003 Honda Accord': 'lightgray'
+            '2020 Toyota Tacoma': 'grey',
+            '2012 Chevy Cruze': 'red',
+            '2016 Toyota Corolla': 'orange',
+            '2017 Hyundai Sonata': 'blue',
+            '2003 Honda Accord': 'pink'
         }
 
         auto_figure = go.Figure()
@@ -114,7 +114,6 @@ class Insurance:
         home_figure = make_subplots(
             rows=2,
             cols=1,
-            shared_xaxes=True,
             subplot_titles=(
                 'Home Insurance Premiums',
                 'Home Insurance Coverages'
@@ -140,8 +139,8 @@ class Insurance:
 
         home_figure.update_layout(
             title='Home Insurance Premiums and Coverages',
-            xaxis_title='Date',
             yaxis_title='Amount',
+            yaxis2=dict(title='Amount'),
             legend_title='Premium/Coverage',
             hovermode='x unified',
             height=800
