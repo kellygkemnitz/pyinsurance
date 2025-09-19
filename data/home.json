@@ -63,5 +63,18 @@
         "Guest Medical Protection": 1000.00,
         "Building Codes": 47922.00,
         "Water Back-Up": 10000.00
+    },
+    {
+        "Date": "9/18/2025",
+        "Insurer": "Allstate",
+        "Total": 2649.80,
+        "Dwelling Coverage": 520920.00,
+        "Other Structures Protection": 78138.00,
+        "Personal Property Protection": 390690.00,
+        "Additional Living Expense": 130230.00,
+        "Family Liability Protection": 300000.00,
+        "Guest Medical Protection": 1000.00,
+        "Building Codes": 52092.00,
+        "Water Back-Up": 10000.00
     }
 ]
