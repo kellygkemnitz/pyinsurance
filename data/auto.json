@@ -229,5 +229,14 @@
         "2020 Toyota Tacoma": 721.00,
         "2003 Honda Accord": 622.00,
         "Total": 2129.00
+    },
+    {
+        "Date": "2/3/2026",
+        "Category": "Premium",
+        "Insurer": "Liberty Mutual",
+        "2017 Hyundai Sonata": 786.00,
+        "2020 Toyota Tacoma": 697.00,
+        "2003 Honda Accord": 622.00,
+        "Total": 2105.00
     }
 ]
